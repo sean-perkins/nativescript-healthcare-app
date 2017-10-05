@@ -4,3 +4,4 @@ platforms/
 report/
 .nsbuildinfo
 app/**/*.js
+package-lock.json

@@ -1,0 +1,16 @@
+<RadSideDrawer showOverNavigation="true" gesturesEnabled="true">
+    <StackLayout tkDrawerContent>
+        <healthcare-sidedrawer (onNavigate)="hideDrawer()"></healthcare-sidedrawer>>
+    </StackLayout>
+    <GridLayout rows="auto, *" tkMainContent>
+        <healthcare-actionbar (onToggleNavigation)="toggleDrawer()"></healthcare-actionbar>
+        <GridLayout row="1">
+            <router-outlet></router-outlet>
+        </GridLayout>
+        <Label *ngIf="drawerVisible"
+            row="0"
+            rowSpan="2"
+            #overlay
+            class="overlay" ></Label>
+    </GridLayout>
+</RadSideDrawer>

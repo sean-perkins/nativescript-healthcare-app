@@ -1,0 +1,17 @@
+@import '../../../scss/common/spacing';
+@import '../../../scss/common/theme';
+
+.action-bar {
+    height: 60;
+    background-color: map-get($grey, 0);
+    color: map-get($grey, 500);
+    @extend .pw-2;
+    .menu-toggle {
+        horizontal-align: left;
+    }
+    font-size: 20;
+    &.transparent {
+        background-color: transparent;
+        color: map-get($grey, 0);
+    }
+}

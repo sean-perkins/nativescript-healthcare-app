@@ -1,0 +1,15 @@
+.table {
+    .table {
+        &-column {
+            border-width: 1;
+            border-right-width: 0;
+            border-color: map-get($grey, 300);
+            &.first-col {
+                border-left-width: 0;
+            }
+            &.last-row {
+                border-top-width: 0;
+            }
+        }
+    }
+}

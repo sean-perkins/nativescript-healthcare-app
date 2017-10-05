@@ -1,0 +1,40 @@
+@import '../../../scss/common/theme';
+@import '../../../scss/common/spacing';
+
+.side-drawer {
+    height: 100%;
+    width: 300;
+    background-color: map-get($grey, 0);
+
+    .menu-item {
+        font-size: 20;
+        horizontal-align: left;
+        color: map-get($grey, 500);
+        @extend .mh-1;
+    }
+
+    .active {
+        &-bg, &-border {
+            visibility: hidden;
+        }
+        &-bg {
+            background-color: map-get($blue, 100);
+            opacity: 0.3;
+            width: 20;
+            @extend .mr-2;
+        }
+        &-border {
+            border-color: map-get($blue, 400);
+            border-left-width: 4;
+            width: 3;
+        }
+    }
+
+    .link-active {
+        .active {
+            &-bg, &-border {
+                visibility: visible;
+            }
+        }
+    }
+}

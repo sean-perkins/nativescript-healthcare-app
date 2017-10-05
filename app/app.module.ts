@@ -3,6 +3,7 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NSModuleFactoryLoader } from 'nativescript-angular/router';
+import { TemplatesModule } from './templates/templates.module';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
@@ -16,7 +17,8 @@ import { NSModuleFactoryLoader } from 'nativescript-angular/router';
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        TemplatesModule
     ],
     declarations: [
         AppComponent

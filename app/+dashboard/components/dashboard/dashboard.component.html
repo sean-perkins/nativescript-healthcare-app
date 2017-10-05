@@ -1,0 +1,34 @@
+<GridLayout rows="auto, auto, *, *">
+    <Label class="h3 pw-3"
+        text="Welcome back, Sean"></Label>
+    <Label class="h3 pw-3" row="1">
+        <FormattedString>
+            <Span text="Things look "></Span>
+            <Span class="accent" text="alright."></Span>
+        </FormattedString>
+    </Label>
+    <GridLayout class="table mt-3" row="2" rows="*, *" columns="*, *">
+        <ng-template ngFor [ngForOf]="widgets" let-widget let-i="index">
+            <GridLayout class="table-column"
+                rows="*, *"
+                [class.first-col]="i % 2 === 0"
+                [class.last-row]="i > 1"
+                [row]="i < 2 ? 0 : 1"
+                [col]="i % 2 === 0 ? 0 : 1">
+                <healthcare-statistic
+                    [unit]="widget.unit"
+                    [value]="widget.value"
+                    [label]="widget.label"></healthcare-statistic>
+            </GridLayout>
+        </ng-template>
+        <!-- <GridLayout class="table-column" row="0" col="1">
+            <healthcare-statistic label="Calories burned"></healthcare-statistic>
+        </GridLayout>
+        <GridLayout class="table-column" row="1" col="0">
+            <healthcare-statistic label="Steps"></healthcare-statistic>
+        </GridLayout>
+        <GridLayout class="table-column" row="1" col="1">
+            <healthcare-statistic label="Heart rate"></healthcare-statistic>
+        </GridLayout> -->
+    </GridLayout>
+</GridLayout>

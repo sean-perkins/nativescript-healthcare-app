@@ -17,3 +17,12 @@ Label, .label {
         color: map-get($grey, 800);
     }
 }
+
+.h3 {
+    font-size: 20;
+    @extend .label-dark
+}
+
+.accent {
+    color: map-get($blue, 500);
+}

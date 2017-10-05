@@ -1,0 +1,26 @@
+<GridLayout rows="100, auto, auto, auto, *" class="ph-4 side-drawer">
+    <!-- TODO User Avatar -->
+    <Label row="1" class="pw-4 h3" text="Sean"></Label>
+    <Label row="2" class="pw-4 h3" text="Perkins"></Label>
+    <Label row="3" class="pw-4" text="57% of goals"></Label>
+
+    <!-- TODO Menu Links -->
+    <StackLayout class="mt-5" row="4">
+        <StackLayout *ngFor="let item of menuItems" [nsRouterLink]="item.link" [nsRouterLinkActive]="['link-active']"
+            orientation="horizontal">
+            <Label class="active-border"></Label>
+            <Label class="active-bg"></Label>
+            <Button class="menu-item"
+                [text]="item.label"
+                (tap)="onMenuTap(item)">
+                <!-- <FormattedString>
+                    <Span class="active-border" text=" "></Span>
+                    <Span #test class="active-bg" text="    "></Span>
+                    <Span text="    "></Span>
+                    <Span [text]="item.label"></Span>
+                </FormattedString> -->
+            </Button>
+        </StackLayout>
+        <!-- <Label class="active" text="TESTING!!!"></Label> -->
+    </StackLayout>
+</GridLayout>

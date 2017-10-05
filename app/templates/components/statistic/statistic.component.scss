@@ -1,0 +1,15 @@
+@import '../../../scss/common/theme';
+
+.st {
+    &-label {
+        font-size: 12;
+        font-weight: 600;
+    }
+    &-unit {
+        font-size: 22;
+    }
+    &-value {
+        font-size: 32;
+        color: map-get($grey, 800);
+    }
+}

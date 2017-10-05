@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import * as dialogs from 'tns-core-modules/ui/dialogs';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
     moduleId: module.id,
@@ -15,7 +16,9 @@ export class LoginComponent implements OnInit {
 
     submitted = false;
 
-    constructor(private fb: FormBuilder) { }
+    constructor(
+        private routerExt: RouterExtensions,
+        private fb: FormBuilder) { }
 
     ngOnInit() {
         this.initializeForm();
@@ -23,7 +26,11 @@ export class LoginComponent implements OnInit {
 
     attemptLogin(): void {
         this.submitted = true;
-        dialogs.alert(JSON.stringify(this.form.value));
+        // dialogs.alert(JSON.stringify(this.form.value));
+        // if (this.form.valid) {
+        // TODO temporary - move all to reactive state
+        this.routerExt.navigate(['/dashboard'], { clearHistory: true });
+        // }
     }
 
     private initializeForm(): void {

@@ -3,7 +3,11 @@ import { RadSideDrawerComponent } from 'nativescript-pro-ui/sidedrawer/angular';
 import { RadSideDrawer } from 'nativescript-pro-ui/sidedrawer';
 import { Page } from 'tns-core-modules/ui/page';
 import { Label } from 'tns-core-modules/ui/label';
-
+/**
+ * Custom Page Implementation
+ * Allows us to project content inside the side drawer template
+ * @author Sean Perkins <sean-perkins>
+ */
 @Component({
     moduleId: module.id,
     selector: 'healthcare-page',
@@ -11,13 +15,13 @@ import { Label } from 'tns-core-modules/ui/label';
     styleUrls: ['./page.component.css']
 })
 export class PageComponent implements AfterViewInit, OnDestroy {
-
+    // Element reference to the side drawer component
     @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
-
+    // The element reference to the background overlay label
     @ViewChild('overlay') overlay: ElementRef;
-
+    // Reference reference to the side drawer element
     private drawer: RadSideDrawer;
-
+    // Visibility state of the side drawer
     drawerVisible = false;
 
     constructor(
@@ -28,7 +32,6 @@ export class PageComponent implements AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-
         this.drawer = this.drawerComponent.sideDrawer;
         this.drawer.on(RadSideDrawer.drawerClosingEvent, () => {
             this.zone.run(() => {
@@ -46,18 +49,28 @@ export class PageComponent implements AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
+        // Clean up event listeners
         this.drawer.off(RadSideDrawer.drawerClosingEvent);
         this.drawer.off(RadSideDrawer.drawerOpeningEvent);
     }
 
-    toggleDrawer(): void {
+    /**
+     * Shows the side drawer from the left-hand side
+     */
+    showDrawer(): void {
         this.drawer.showDrawer();
     }
 
+    /**
+     * Dismisses the side-drawer from the screen
+     */
     hideDrawer(): void {
         this.drawer.closeDrawer();
     }
 
+    /**
+     * Animates the background overlay to create a backdrop on the existing content
+     */
     private animateOverlay(): void {
         const label = this.overlay.nativeElement as Label;
         label.animate({

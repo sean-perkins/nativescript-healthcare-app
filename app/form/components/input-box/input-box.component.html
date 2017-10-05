@@ -1,0 +1,14 @@
+<GridLayout rows="auto" [row]="row" [ngClass]="customClasses">
+    <!-- Valid Icon (checkmark) -->
+    <Label row="0" #checkmark
+        class="icon valid" mat="check"></Label>
+    <!-- Invalid Icon (X) -->
+    <Label row="0" #error
+        class="icon invalid" mat="close"></Label>
+    <!-- Projected content of the TextField -->
+    <ng-content></ng-content>
+    <!-- Faked Border to allow for animations -->
+    <Label [style]="borderOffset" row="0"
+        [class.valid]="!submitted || isValid"
+        class="indicator"></Label>
+</GridLayout>

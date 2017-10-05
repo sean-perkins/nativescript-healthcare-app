@@ -1,0 +1,26 @@
+@import '../../../scss/ui/typography';
+
+Label {
+    font-size: 24;
+}
+
+.logo {
+    vertical-align: top;
+    @extend .label-dark;
+}
+
+.title {
+    font-size: 28;
+    line-height: 25;
+}
+
+.btn {
+    text-align: left;
+    &-login {
+        font-size: 21;
+        font-weight: 500;
+    }
+    &-register {
+        font-size: 12;
+    }
+}

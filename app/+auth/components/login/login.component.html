@@ -1,0 +1,37 @@
+<GridLayout rows="*, auto, auto, auto, auto, auto, *, *" class="m-4" [formGroup]="form">
+    <!-- Logo -->
+    <Label class="logo" text="Healthcare"></Label>
+    <!-- Form Description -->
+    <Label row="1" class="title label-dark" text="Welcome back,"></Label>
+    <Label row="2" class="title" text="sign in to continue"></Label>
+    <Label row="3" class="title mb-5" text="to Healthcare."></Label>
+    <!-- Email Input Box -->
+    <healthcare-input-box row="4"
+        [submitted]="submitted"
+        [control]="form.controls.email">
+        <TextField
+            autocapitalizationType="none"
+            hint="Email"
+            formControlName="email"></TextField>
+    </healthcare-input-box>
+    <!-- Password Input Box -->
+    <healthcare-input-box row="5" class="mt-1"
+        [submitted]="submitted"
+        [control]="form.controls.password">
+        <TextField
+            hint="Password"
+            secure="true"
+            formControlName="password"></TextField>
+    </healthcare-input-box>
+    <!-- Login Button -->
+    <Button row="6" class="btn btn-login mt-4"
+        (tap)="attemptLogin()"
+        text="Login"></Button>
+    <Button row="7" class="btn btn-register mt-4">
+        <FormattedString>
+            <Span class="label" text="Don't have an account?"></Span>
+            <Span text=" "></Span>
+            <Span class="label label-medium bold" text="Sign up."></Span>
+        </FormattedString>
+    </Button>
+</GridLayout>

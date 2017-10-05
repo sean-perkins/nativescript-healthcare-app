@@ -1,0 +1,19 @@
+@import '../common/theme';
+
+.bold {
+    font-weight: bold;
+}
+
+Label, .label {
+    color: map-get($grey, 400);
+}
+
+.label {
+    font-weight: 500;
+    &-medium {
+        color: map-get($grey, 500);
+    }
+    &-dark {
+        color: map-get($grey, 800);
+    }
+}

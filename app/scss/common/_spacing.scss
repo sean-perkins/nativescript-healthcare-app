@@ -1,0 +1,50 @@
+$units: 1 !default;
+$desktop-gap: 10 * $units !default;
+@for $i from 0 through 12 {
+    .p-#{$i} {
+        padding: ($desktop-gap * $i);
+    }
+    .ph-#{$i} {
+        padding-top: $desktop-gap * $i;
+        padding-bottom: $desktop-gap * $i;
+    }
+    .pw-#{$i} {
+        padding-left: $desktop-gap * $i;
+        padding-right: $desktop-gap * $i;
+    }
+    .pt-#{$i} {
+        padding-top: $desktop-gap * $i;
+    }
+    .pb-#{$i} {
+        padding-bottom: $desktop-gap * $i;
+    }
+    .pl-#{$i} {
+        padding-left: $desktop-gap * $i;
+    }
+    .pr-#{$i} {
+        padding-right: ($desktop-gap * $i);
+    }
+    .m-#{$i} {
+        margin: $desktop-gap * $i;
+    }
+    .mh-#{$i} {
+        margin-top: $desktop-gap * $i;
+        margin-bottom: $desktop-gap * $i;
+    }
+    .mw-#{$i} {
+        margin-right: $desktop-gap * $i;
+        margin-left: $desktop-gap * $i;
+    }
+    .mt-#{$i} {
+        margin-top: $desktop-gap * $i;
+    }
+    .mb-#{$i} {
+        margin-bottom: $desktop-gap * $i;
+    }
+    .ml-#{$i} {
+        margin-left: $desktop-gap * $i;
+    }
+    .mr-#{$i} {
+        margin-right: ($desktop-gap * $i);
+    }
+}

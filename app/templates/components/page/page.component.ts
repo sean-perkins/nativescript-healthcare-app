@@ -74,7 +74,7 @@ export class PageComponent implements AfterViewInit, OnDestroy {
     private animateOverlay(): void {
         const label = this.overlay.nativeElement as Label;
         label.animate({
-            opacity: 0.4,
+            opacity: 0.8,
             duration: 500
         });
     }

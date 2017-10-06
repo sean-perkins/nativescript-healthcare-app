@@ -1,9 +1,75 @@
-<Label class="pw-4" verticalAlignment="bottom">
+<Label class="pw-4" verticalAlignment="center">
     <FormattedString>
         <Span class="st-value" [text]="value"></Span>
         <Span text=" "></Span>
         <Span class="st-unit" [text]="unit"></Span>
     </FormattedString>
 </Label>
-<Label row="1" verticalAlignment="top"
+<Label row="0" verticalAlignment="center"
     class="pw-4 st-label" [text]="label"></Label>
+
+<ng-template [ngIf]="chartType === 'line'">
+    <RadCartesianChart row="0" rowSpan="2" backgroundColor="transparent" class="mt-6" width="80%">
+        <CategoricalAxis tkCartesianHorizontalAxis
+            labelTextColor="transparent"
+            lineColor="transparent"
+            lineHidden="true"></CategoricalAxis>
+        <LinearAxis tkCartesianVerticalAxis
+            labelTextColor="transparent"
+            lineColor="transparent"
+            lineHidden="true"></LinearAxis>
+
+        <LineSeries tkCartesianSeries
+            seriesName="line"
+            stackMode="None"
+            [items]="chartData"
+            categoryProperty="Label"
+            valueProperty="Amount">
+        </LineSeries>
+
+        <Palette tkCartesianPalette seriesName="line">
+            <PaletteEntry tkCartesianPaletteEntry
+                strokeWidth="2"
+                [strokeColor]="hasChartOptions ? chartOptions.lineColor : 'pink'"></PaletteEntry>
+        </Palette>
+
+        <RadCartesianChartGrid
+            tkCartesianGrid
+            horizontalLinesVisible="false"
+            verticalLinesVisible="false"
+            horizontalStripLinesVisible="false"
+            verticalStripLinesVisible="false"></RadCartesianChartGrid>
+
+    </RadCartesianChart>
+</ng-template>
+<ng-template [ngIf]="chartType === 'bar'">
+    <RadCartesianChart row="0" rowSpan="2" backgroundColor="transparent" class="mt-6 mr-5">
+
+        <CategoricalAxis tkCartesianHorizontalAxis
+            labelTextColor="transparent"
+            lineColor="transparent"
+            lineHidden="true"></CategoricalAxis>
+        <LinearAxis tkCartesianVerticalAxis
+            labelTextColor="transparent"
+            lineColor="transparent"
+            lineHidden="true"></LinearAxis>
+        <BarSeries tkCartesianSeries
+            seriesName="bar"
+            [items]="chartData"
+            categoryProperty="Label"
+            valueProperty="Amount"></BarSeries>
+
+        <Palette tkCartesianPalette seriesName="bar">
+            <PaletteEntry tkCartesianPaletteEntry
+                strokeWidth="0"
+                [fillColor]="hasChartOptions ? chartOptions.lineColor : 'pink'"></PaletteEntry>
+        </Palette>
+
+        <RadCartesianChartGrid
+            tkCartesianGrid
+            horizontalLinesVisible="false"
+            verticalLinesVisible="false"
+            horizontalStripLinesVisible="false"
+            verticalStripLinesVisible="false"></RadCartesianChartGrid>
+    </RadCartesianChart>
+</ng-template>

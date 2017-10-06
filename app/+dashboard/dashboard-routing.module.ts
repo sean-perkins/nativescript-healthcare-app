@@ -6,7 +6,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
     {
         path: '',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: {
+            actionBar: {
+                rightIcon: 'plus-circle-o'
+            }
+        }
     }
 ];
 

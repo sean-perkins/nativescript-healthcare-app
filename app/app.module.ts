@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NSModuleFactoryLoader } from 'nativescript-angular/router';
 import { TemplatesModule } from './templates/templates.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './store/app.state';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
@@ -18,7 +20,8 @@ import { TemplatesModule } from './templates/templates.module';
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        TemplatesModule
+        TemplatesModule,
+        StoreModule.forRoot(reducers, { metaReducers }),
     ],
     declarations: [
         AppComponent

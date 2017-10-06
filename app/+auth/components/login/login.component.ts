@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         // dialogs.alert(JSON.stringify(this.form.value));
         // if (this.form.valid) {
         // TODO temporary - move all to reactive state
-        this.routerExt.navigate(['/dashboard'], { clearHistory: true });
+        this.routerExt.navigate(['/app/dashboard'], { clearHistory: true });
         // }
     }
 

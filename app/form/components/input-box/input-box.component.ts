@@ -6,6 +6,7 @@ import { TextField } from 'tns-core-modules/ui/text-field';
 import { Label } from 'tns-core-modules/ui/label';
 
 import * as platform from 'tns-core-modules/platform';
+import * as enums from 'tns-core-modules/ui/enums';
 
 @Component({
     moduleId: module.id,
@@ -92,6 +93,7 @@ export class InputBoxComponent implements AfterViewInit, OnDestroy, OnChanges {
                 x: 1.5,
                 y: 1.5
             },
+            curve: enums.AnimationCurve.easeInOut,
             duration: 500
         }).then(() => {
             icon.animate({
@@ -124,7 +126,8 @@ export class InputBoxComponent implements AfterViewInit, OnDestroy, OnChanges {
                 y: 0
             },
             opacity: inverse ? 0 : 1,
-            duration: 500
+            duration: 500,
+            curve: inverse ? enums.AnimationCurve.easeOut : enums.AnimationCurve.easeIn
         });
     }
 

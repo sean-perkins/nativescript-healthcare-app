@@ -1,8 +1,12 @@
 <GridLayout class="action-bar"
+    columns="auto, *, auto"
     [row]="row"
     [class.transparent]="transparent">
     <Button row="0"
         class="menu-toggle"
         (tap)="onToggleNavigation.next(true)"
-        mat="menu"></Button>
+        [mat]="leftIcon"></Button>
+    <Button row="0" *ngIf="rightIcon$ | async"
+        col="2"
+        [mat]="rightIcon$ | async"></Button>
 </GridLayout>

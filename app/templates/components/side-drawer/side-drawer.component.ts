@@ -30,6 +30,14 @@ export class SideDrawerComponent {
             action: () => {
                 console.log('called');
             }
+        },
+        {
+            label: 'Sign out',
+            action: () => {
+                this.routerExt.navigate(['/auth/login'], {
+                    clearHistory: true
+                });
+            }
         }
     ];
 

@@ -1,9 +1,11 @@
 @import '../../../scss/common/theme';
+@import '../../../scss/common/spacing';
 
 .st {
     &-label {
         font-size: 12;
         font-weight: 600;
+        @extend .mt-5
     }
     &-unit {
         font-size: 22;

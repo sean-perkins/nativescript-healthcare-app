@@ -26,7 +26,7 @@ NativeScript Angular app template for an example healthcare scenario. Demonstrat
 |iOS|Android|
 |:---:|:---:|
 |<img src="https://slack-imgs.com/?c=1&url=https%3A%2F%2Fi.gyazo.com%2F492533e8756f73d86bcdbe370900f38b.gif" width="250px"/>|TODO|
-|<img src="https://user-images.githubusercontent.com/13732623/31211883-c1b41964-a96a-11e7-8890-ec61cc9be2d3.png" width="250px">|TODO|
+|<img src="https://user-images.githubusercontent.com/13732623/31262439-ee65ac98-aa28-11e7-8b68-6e8b3f62c19a.png" width="250px">|TODO|
 |<img src="https://user-images.githubusercontent.com/13732623/31211882-c1a5316a-a96a-11e7-81d0-41ba8e55314c.png" width="250px">|TODO|
 
 ---

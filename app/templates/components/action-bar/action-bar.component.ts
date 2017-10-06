@@ -2,6 +2,9 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getBarIcon } from '../../../store/app.state';
 import { Observable } from 'rxjs/Observable';
+import { isIOS } from 'tns-core-modules/platform';
+
+import * as pageActions from '../../../store/actions/page';
 /**
  * Custom Action Bar Implementation
  * Allows us to have complete control of the content, styling and behavior.
@@ -25,11 +28,20 @@ export class ActionBarComponent implements OnInit {
     @Input() leftIcon = 'menu';
     // The right column icon to display
     rightIcon$: Observable<string>;
+    // Flag for the template to determine if iOS device
+    isIOS: boolean;
 
-    constructor(private store$: Store<any>) { }
+    constructor(private store$: Store<any>) {
+        this.isIOS = isIOS;
+    }
 
     ngOnInit() {
         this.rightIcon$ = this.store$.select(getBarIcon);
+    }
+
+    rightIconTapped(): void {
+        console.log('dispatch action here');
+        this.store$.dispatch(new pageActions.BarIconPressed);
     }
 
 }

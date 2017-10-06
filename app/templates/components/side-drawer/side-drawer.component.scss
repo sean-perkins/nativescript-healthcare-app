@@ -13,6 +13,12 @@
         @extend .mh-1;
     }
 
+    Button {
+        background-color: transparent;
+        border-color: transparent;
+        border-width: 1;
+    }
+
     .active {
         &-bg, &-border {
             visibility: hidden;

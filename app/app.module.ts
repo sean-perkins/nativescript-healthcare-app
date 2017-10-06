@@ -6,6 +6,7 @@ import { NSModuleFactoryLoader } from 'nativescript-angular/router';
 import { TemplatesModule } from './templates/templates.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/app.state';
+import { EffectsModule } from '@ngrx/effects';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
@@ -22,6 +23,15 @@ import { reducers, metaReducers } from './store/app.state';
         AppRoutingModule,
         TemplatesModule,
         StoreModule.forRoot(reducers, { metaReducers }),
+        /**
+        * EffectsModule.forRoot() is imported once in the root module and
+        * sets up the effects class to be initialized immediately when the
+        * application starts.
+        *
+        * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
+        */
+        EffectsModule.forRoot([]),
+
     ],
     declarations: [
         AppComponent

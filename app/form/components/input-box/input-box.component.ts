@@ -30,7 +30,7 @@ export class InputBoxComponent implements AfterViewInit, OnDestroy, OnChanges {
     // Subject to unsubscribe hot listeners
     private destroy$: Subject<boolean> = new Subject();
     // The validity of the form control
-    private isValid = false;
+    isValid = false;
 
     constructor(private element: ElementRef) { }
 

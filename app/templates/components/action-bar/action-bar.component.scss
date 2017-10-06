@@ -14,4 +14,10 @@
         background-color: transparent;
         color: map-get($grey, 0);
     }
+    Button {
+        background-color: transparent;
+        border-color: transparent;
+        border-width: 1;
+        text-align: left;
+    }
 }

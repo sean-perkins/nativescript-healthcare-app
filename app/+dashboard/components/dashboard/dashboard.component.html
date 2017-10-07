@@ -10,6 +10,7 @@
     <GridLayout class="table mt-3" row="2" rows="*, *" columns="*, *">
         <ng-template ngFor [ngForOf]="widgets" let-widget let-i="index">
             <GridLayout class="table-column"
+                (tap)="viewStatistic($event, widget)"
                 rows="*, *"
                 [class.first-col]="i % 2 === 0"
                 [class.last-row]="i > 1"

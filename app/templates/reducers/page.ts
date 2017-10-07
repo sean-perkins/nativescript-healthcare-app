@@ -1,22 +1,22 @@
 import * as page from '../actions/page';
 
 export interface State {
-    barIcon: string;
+    primaryIcon: string;
 }
 
 const initialState: State = {
-    barIcon: undefined,
+    primaryIcon: undefined,
 };
 
 export function reducer(state = initialState, action: page.Actions): State {
     switch (action.type) {
-        case page.SET_BAR_ICON:
+        case page.PRIMARY_ICON:
             return {
-                barIcon: action.payload,
+                primaryIcon: action.payload,
             };
         default:
             return state;
     }
 }
 
-export const getBarIcon = (state: State) => state.barIcon;
+export const getPrimaryIcon = (state: State) => state.primaryIcon;

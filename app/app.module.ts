@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NSModuleFactoryLoader } from 'nativescript-angular/router';
 import { TemplatesModule } from './templates/templates.module';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store/app.state';
+import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding

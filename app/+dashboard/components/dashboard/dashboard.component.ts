@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import { State } from '../../../store/app.state';
-import * as pageActions from '../../../store/actions/page';
+import * as pageActions from '../../../templates/actions/page';
+import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout';
+import { Color } from 'tns-core-modules/color/color';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
     moduleId: module.id,
@@ -86,10 +88,27 @@ export class DashboardComponent implements OnInit {
         }
     ];
 
-    constructor(private store$: Store<State>) { }
+    constructor(
+        private store$: Store<any>,
+        private routerExt: RouterExtensions) { }
 
     ngOnInit() {
-        this.store$.dispatch(new pageActions.SetBarIcon('plus-circle-o'));
+        this.store$.dispatch(new pageActions.PrimaryIcon('plus-circle-o'));
+    }
+
+    viewStatistic(event: any, widget: any) {
+        const grid = event.object as GridLayout;
+        grid.animate({
+            backgroundColor: new Color('#EEEEF0'),
+            duration: 250
+        }).then(() => {
+            grid.animate({
+                backgroundColor: new Color('#fff'),
+                duration: 0
+            }).then(() => {
+                this.routerExt.navigate(['/app/dashboard', widget.label]);
+            });
+        });
     }
 
 }

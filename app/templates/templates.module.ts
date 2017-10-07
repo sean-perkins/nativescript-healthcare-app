@@ -1,3 +1,5 @@
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NgModule } from '@angular/core';
@@ -10,6 +12,9 @@ import { StatisticComponent } from './components/statistic/statistic.component';
 import { NativeScriptUISideDrawerModule } from 'nativescript-pro-ui/sidedrawer/angular';
 import { PageComponent } from './components/page/page.component';
 import { SideDrawerComponent } from './components/side-drawer/side-drawer.component';
+import { PageEffects } from './effects/page.effects';
+
+import { reducers } from './reducers';
 
 @NgModule({
     imports: [
@@ -17,7 +22,9 @@ import { SideDrawerComponent } from './components/side-drawer/side-drawer.compon
         NSMaterialIconsModule,
         NativeScriptUISideDrawerModule,
         NativeScriptRouterModule,
-        NativeScriptUIChartModule
+        NativeScriptUIChartModule,
+        StoreModule.forFeature('page', reducers),
+        EffectsModule.forFeature([PageEffects])
     ],
     declarations: [
         ActionBarComponent,

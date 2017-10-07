@@ -3,18 +3,15 @@ import { ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } 
 import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 
-import * as fromPage from './reducers/page';
+// import * as fromPage from './reducers/page';
 
-export interface State {
-    page: fromPage.State;
-};
+export interface State { };
 
-export const reducers: ActionReducerMap<State> = {
-    page: fromPage.reducer
-};
+export const reducers: ActionReducerMap<State> = {};
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
     return function (state: State, action: any): State {
+        console.log('action fired', action.type);
         // TODO add logging here if you want to see state and actions
         return reducer(state, action);
     };
@@ -26,9 +23,3 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
  * that will be composed to form the root meta-reducer.
  */
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [logger, storeFreeze] : [];
-
-/**
- * Page Reducers
- */
-export const getPageState = createFeatureSelector<fromPage.State>('page');
-export const getBarIcon = createSelector(getPageState, fromPage.getBarIcon);

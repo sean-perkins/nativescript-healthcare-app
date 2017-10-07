@@ -8,9 +8,9 @@
         class="menu-toggle"
         (tap)="onToggleNavigation.next(true)"
         [mat]="leftIcon"></Button>
-    <Button row="0" *ngIf="rightIcon$ | async"
+    <Button row="0" *ngIf="primaryIcon$ | async"
         textAlignment="right"
         col="2"
-        (tap)="rightIconTapped()"
-        [mat]="rightIcon$ | async"></Button>
+        (tap)="handlePrimaryAction()"
+        [mat]="primaryIcon$ | async"></Button>
 </GridLayout>

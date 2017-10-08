@@ -74,6 +74,9 @@ export class DashboardComponent implements OnInit {
             label: 'Steps',
             chartType: 'bar',
             chartData: this.steps,
+            chartOptions: {
+                lineColor: '#3e9ae3'
+            },
             value: 3342
         },
         {
@@ -97,10 +100,11 @@ export class DashboardComponent implements OnInit {
     }
 
     viewStatistic(event: any, widget: any) {
+        this.store$.dispatch(new pageActions.ActiveWidget(widget));
         const grid = event.object as GridLayout;
         grid.animate({
             backgroundColor: new Color('#EEEEF0'),
-            duration: 250
+            duration: 100
         }).then(() => {
             grid.animate({
                 backgroundColor: new Color('#fff'),

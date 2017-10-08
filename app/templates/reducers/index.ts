@@ -44,3 +44,4 @@ export const getTemplateState = createFeatureSelector<TemplateState>('page');
 export const getTemplatePageState = createSelector(getTemplateState, (state: TemplateState) => state.page);
 
 export const getPagePrimaryIcon = createSelector(getTemplatePageState, fromPage.getPrimaryIcon);
+export const getPageActiveWidget = createSelector(getTemplatePageState, fromPage.getActiveWidget);

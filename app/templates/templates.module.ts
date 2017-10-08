@@ -13,6 +13,7 @@ import { NativeScriptUISideDrawerModule } from 'nativescript-pro-ui/sidedrawer/a
 import { PageComponent } from './components/page/page.component';
 import { SideDrawerComponent } from './components/side-drawer/side-drawer.component';
 import { PageEffects } from './effects/page.effects';
+import { StatisticCircleComponent } from './components/statistic-circle/statistic-circle.component';
 
 import { reducers } from './reducers';
 
@@ -30,12 +31,14 @@ import { reducers } from './reducers';
         ActionBarComponent,
         StatisticComponent,
         PageComponent,
-        SideDrawerComponent
+        SideDrawerComponent,
+        StatisticCircleComponent
     ],
     exports: [
         ActionBarComponent,
         StatisticComponent,
         PageComponent,
+        StatisticCircleComponent,
         NativeScriptUISideDrawerModule
     ],
     schemas: [

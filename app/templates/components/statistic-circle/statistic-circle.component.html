@@ -1,0 +1,16 @@
+<GridLayout rows="auto" [margin]="margin" class="statistic-container">
+    <AnimatedCircle
+        backgroundColor="transparent"
+        [rimColor]="rimColor"
+        [barColor]="barColor"
+        [progress]="progress"
+        width="300"
+        height="300"></AnimatedCircle>
+    <Label row="0"
+        class="heading bold"
+        [text]="title"></Label>
+    <Label row="0"
+        class="value label-dark" [text]="value"></Label>
+    <Label row="0"
+        class="sub-heading" [text]="subTitle"></Label>
+</GridLayout>

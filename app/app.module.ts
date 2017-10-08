@@ -7,12 +7,15 @@ import { TemplatesModule } from './templates/templates.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
+import { registerElement } from 'nativescript-angular/element-registry';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpModule } from 'nativescript-angular/http';
+
+registerElement('AnimatedCircle', () => require('nativescript-animated-circle').AnimatedCircle);
 
 @NgModule({
     bootstrap: [

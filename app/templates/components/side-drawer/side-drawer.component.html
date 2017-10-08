@@ -5,13 +5,16 @@
     <Label row="3" class="pw-4" text="57% of goals"></Label>
 
     <StackLayout class="mt-5" row="4">
-        <StackLayout *ngFor="let item of menuItems" [nsRouterLink]="item.link" [nsRouterLinkActive]="['link-active']"
+        <StackLayout *ngFor="let item of menuItems"
+            (tap)="onMenuTap(item)"
+            [nsRouterLink]="item.link"
+            [nsRouterLinkActive]="['link-active']"
             orientation="horizontal">
             <Label class="active-border"></Label>
             <Label class="active-bg"></Label>
             <Button class="menu-item"
-                [text]="item.label"
-                (tap)="onMenuTap(item)">
+                (tap)="onMenuTap(item)"
+                [text]="item.label">
             </Button>
         </StackLayout>
     </StackLayout>

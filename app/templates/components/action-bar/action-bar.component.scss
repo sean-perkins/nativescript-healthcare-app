@@ -5,7 +5,11 @@
     height: 60;
     background-color: map-get($grey, 0);
     color: map-get($grey, 500);
+    vertical-align: top;
     @extend .pw-2;
+    &.transparent {
+        background-color: transparent;
+    }
     .menu-toggle {
         horizontal-align: left;
         text-align: left;

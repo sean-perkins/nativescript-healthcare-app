@@ -1,0 +1,58 @@
+@import '../../../scss/common/theme';
+@import '../../../scss/ui/typography';
+
+.profile {
+    &-header {
+        background-repeat: no-repeat;
+        background-size: cover;
+        .goal {
+            font-size: 13;
+            color: map-get($violet, 300);
+        }
+    }
+}
+.gradient {
+    &-light {
+        background-color: map-get($violet, 700);
+        height: 100%;
+        width: 100%;
+        opacity: .6;
+        &-border {
+            border-bottom-width: 5;
+            border-bottom-color: map-get($blue, 300);
+            height: 100%;
+        }
+    }
+    &-dark {
+        background-color: map-get($violet, 700);
+        height: 100%;
+        width: 100%;
+        opacity: .9;
+    }
+}
+.table {
+    background-color: map-get($blue, 800);
+    StackLayout {
+        padding-top: 30;
+        Label {
+            padding-top: 5;
+            margin-left: 30;
+            color: map-get($violet, 300);
+        }
+        .label-white {
+            @extend .label-white
+        }
+    }
+}
+
+.goal-container {
+    background-color: map-get($blue, 800);
+}
+
+.b {
+    &r, &l, &t {
+        &-grey {
+            border-color: map-get($violet, 600);
+        }
+    }
+}

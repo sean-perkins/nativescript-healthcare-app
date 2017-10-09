@@ -31,9 +31,9 @@ export class User extends BaseUser {
         return `${this.firstName} ${this.lastName}`.trim();
     }
 
-    get bmi(): number {
+    get bmi(): string {
         const height = this.height / 1000;
-        return (this.weight / height) / height;
+        return Number((this.weight / height) / (this.height / 10)).toFixed(0);
     }
 
 }

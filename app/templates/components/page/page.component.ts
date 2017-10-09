@@ -1,8 +1,11 @@
-import { Component, ViewChild, AfterViewInit, NgZone, OnDestroy, ElementRef } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Component, ViewChild, AfterViewInit, NgZone, OnDestroy, ElementRef, OnInit } from '@angular/core';
 import { RadSideDrawerComponent } from 'nativescript-pro-ui/sidedrawer/angular';
 import { RadSideDrawer } from 'nativescript-pro-ui/sidedrawer';
 import { Page } from 'tns-core-modules/ui/page';
 import { Label } from 'tns-core-modules/ui/label';
+import { Observable } from 'rxjs/Observable';
+import { hasTransparentActionBar } from '../../reducers';
 /**
  * Custom Page Implementation
  * Allows us to project content inside the side drawer template
@@ -14,7 +17,7 @@ import { Label } from 'tns-core-modules/ui/label';
     templateUrl: './page.component.html',
     styleUrls: ['./page.component.css']
 })
-export class PageComponent implements AfterViewInit, OnDestroy {
+export class PageComponent implements OnInit, AfterViewInit, OnDestroy {
     // Element reference to the side drawer component
     @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
     // The element reference to the background overlay label
@@ -23,12 +26,19 @@ export class PageComponent implements AfterViewInit, OnDestroy {
     private drawer: RadSideDrawer;
     // Visibility state of the side drawer
     drawerVisible = false;
+    // The state of the action bar transparent
+    actionBarTransparent$: Observable<boolean>;
 
     constructor(
         private zone: NgZone,
+        private store$: Store<any>,
         page: Page) {
         page.backgroundSpanUnderStatusBar = true;
         page.actionBarHidden = true;
+    }
+
+    ngOnInit() {
+        this.actionBarTransparent$ = this.store$.select(hasTransparentActionBar);
     }
 
     ngAfterViewInit() {

@@ -7,9 +7,12 @@ NativeScript Angular app template for an example healthcare scenario. Demonstrat
 - Login Screen - _In Progress_
 - Registration Screen - _Not Started_
 - Dashboard - _In Progress_
+- Profile - _In Progress_
+- Goal Dialog - _In Progress_
 - Settings - _Not Started_
 - Add Goal Modal - _Not Started_
 - Android Parity - _In Progress_
+- Extendable Authentication Module - _Done_
 
 ---
 
@@ -28,6 +31,7 @@ NativeScript Angular app template for an example healthcare scenario. Demonstrat
 |<img src="https://slack-imgs.com/?c=1&url=https%3A%2F%2Fi.gyazo.com%2F492533e8756f73d86bcdbe370900f38b.gif" width="250px"/>|TODO|
 |<img src="https://user-images.githubusercontent.com/13732623/31262439-ee65ac98-aa28-11e7-8b68-6e8b3f62c19a.png" width="250px">|TODO|
 |<img src="https://user-images.githubusercontent.com/13732623/31211882-c1a5316a-a96a-11e7-81d0-41ba8e55314c.png" width="250px">|TODO|
+|<img src="https://user-images.githubusercontent.com/13732623/31325719-2ce96948-ac8e-11e7-846e-c798d9f6b38b.png" width="250px">|TODO|
 
 ---
 

@@ -4,12 +4,14 @@ export interface State {
     primaryIcon: string;
     activeWidget: any;
     hasBack: boolean;
+    transparentActionBar: boolean;
 }
 
 const initialState: State = {
     primaryIcon: undefined,
     activeWidget: undefined,
-    hasBack: true
+    hasBack: true,
+    transparentActionBar: false
 };
 
 export function reducer(state = initialState, action: page.Actions): State {
@@ -23,6 +25,10 @@ export function reducer(state = initialState, action: page.Actions): State {
         case page.ACTIVE_WIDGET:
             return Object.assign({}, state, {
                 activeWidget: action.payload
+            });
+        case page.ACTION_BAR_TRANSPARENT:
+            return Object.assign({}, state, {
+                transparentActionBar: !!action.payload
             });
         default: {
             return state;
@@ -41,3 +47,4 @@ export function reducer(state = initialState, action: page.Actions): State {
 export const getPrimaryIcon = (state: State) => state.primaryIcon;
 export const getActiveWidget = (state: State) => state.activeWidget;
 export const hasBack = (state: State) => state.hasBack;
+export const hasTransparentActionBar = (state: State) => state.transparentActionBar;

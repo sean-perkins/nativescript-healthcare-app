@@ -7,7 +7,7 @@ const routes: Routes = [
     {
         path: '',
         // redirectTo: '/auth/login',
-        redirectTo: '/app/dashboard',
+        redirectTo: '/app/profile',
         pathMatch: 'full'
     },
     {
@@ -26,6 +26,10 @@ const routes: Routes = [
             {
                 path: 'settings',
                 loadChildren: './+settings/settings.module#SettingsModule'
+            },
+            {
+                path: 'profile',
+                loadChildren: './+profile/profile.module#ProfileModule'
             }
         ]
     }

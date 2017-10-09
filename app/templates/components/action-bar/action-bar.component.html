@@ -1,4 +1,5 @@
 <GridLayout class="action-bar"
+    [class.transparent]="transparent$ | async"
     [class.pw-3]="isIOS"
     columns="auto, *, auto"
     [row]="row"

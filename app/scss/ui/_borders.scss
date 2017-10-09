@@ -11,4 +11,16 @@
             border-right-width: 1;
         }
     }
+    &t {
+        &-grey {
+            border-top-color: map-get($grey, 400);
+            border-top-width: 1;
+        }
+    }
+    &b {
+        &-grey {
+            border-bottom-color: map-get($grey, 400);
+            border-bottom-width: 1;
+        }
+    }
 }

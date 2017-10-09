@@ -37,6 +37,10 @@ export class SideDrawerComponent implements OnInit {
             }
         },
         {
+            label: 'Profile',
+            link: ['/app/profile']
+        },
+        {
             label: 'Sign out',
             action: () => {
                 this.store$.dispatch(new auth.Logout);

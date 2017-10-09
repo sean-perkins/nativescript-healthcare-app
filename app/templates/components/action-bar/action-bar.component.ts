@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getPagePrimaryIcon, getPageHasBack } from '../../reducers';
+import { getPagePrimaryIcon, getPageHasBack, hasTransparentActionBar } from '../../reducers';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { isIOS } from 'tns-core-modules/platform';
@@ -29,14 +29,14 @@ export class ActionBarComponent implements OnInit, OnDestroy {
     @Output() onToggleNavigation: EventEmitter<any> = new EventEmitter();
     // The left column icon to display
     @Input() leftIcon = 'menu';
-
+    // The view reference to the toggle icon
     @ViewChild('toggleIcon') toggleIcon: ElementRef;
-
     // The right column icon to display
     primaryIcon$: Observable<string>;
-
+    // If the action bar has a back action enabled
     hasBack$: Observable<boolean>;
-
+    // If the action bar has enabled transparency mode
+    transparent$: Observable<boolean>;
     // Flag for the template to determine if iOS device
     isIOS: boolean;
 
@@ -51,6 +51,7 @@ export class ActionBarComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.primaryIcon$ = this.store$.select(getPagePrimaryIcon);
         this.hasBack$ = this.store$.select(getPageHasBack);
+        this.transparent$ = this.store$.select(hasTransparentActionBar);
 
         this.hasBack$
             .takeUntil(this.destroy$)

@@ -15,7 +15,7 @@ export class AuthService extends BaseAuthService {
             weight: 62,
             height: 183,
             age: 22,
-            bloodType: 'O Negative'
+            bloodType: 'O-'
         }));
     }
 

@@ -3,10 +3,12 @@
         <healthcare-sidedrawer (onNavigate)="hideDrawer()"></healthcare-sidedrawer>>
     </StackLayout>
     <GridLayout rows="auto, *" tkMainContent>
-        <healthcare-actionbar (onToggleNavigation)="showDrawer()"></healthcare-actionbar>
-        <GridLayout row="1">
+        <GridLayout
+            [row]="(actionBarTransparent$ | async) ? 0 : 1"
+            [marginTop]="(actionBarTransparent$ | async) ? -20 : 0">
             <router-outlet></router-outlet>
         </GridLayout>
+        <healthcare-actionbar (onToggleNavigation)="showDrawer()"></healthcare-actionbar>
         <Label *ngIf="drawerVisible"
             row="0"
             rowSpan="2"

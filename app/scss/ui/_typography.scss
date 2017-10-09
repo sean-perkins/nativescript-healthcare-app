@@ -16,11 +16,22 @@ Label, .label {
     &-dark {
         color: map-get($grey, 800);
     }
+    &-white {
+        color: map-get($grey, 25);
+    }
+}
+
+.h2 {
+    font-size: 32;
 }
 
 .h3 {
     font-size: 20;
     @extend .label-dark
+}
+
+.h4 {
+    font-size: 18;
 }
 
 .accent {

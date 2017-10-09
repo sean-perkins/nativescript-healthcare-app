@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 
 export const ACTION_BAR = '[Page] Action Bar';
+export const ACTION_BAR_TRANSPARENT = '[Page] Action Bar Transparent';
 export const PRIMARY_ACTION = '[Page] Primary Action';
 export const PRIMARY_ACTION_COMPLETE = '[Page] Primary Action Complete';
 
@@ -9,6 +10,11 @@ export const ACTIVE_WIDGET = '[Page] Active Widget';
 export class ActionBar implements Action {
     readonly type = ACTION_BAR;
     constructor(public payload: any) { }
+}
+
+export class ActionBarTransparent implements Action {
+    readonly type = ACTION_BAR_TRANSPARENT;
+    constructor(public payload: boolean) { }
 }
 
 export class PrimaryAction implements Action {
@@ -28,4 +34,5 @@ export type Actions
     = ActionBar
     | PrimaryAction
     | PrimaryActionComplete
-    | ActiveWidget;
+    | ActiveWidget
+    | ActionBarTransparent;

@@ -1,0 +1,62 @@
+<GridLayout rows="220, auto, *">
+    <GridLayout class="profile-header" columns="*, *, *, *, *"
+        [style.background-image]="backgroundImage">
+        <Label col="0" colSpan="3" class="gradient-light"></Label>
+        <Label col="0" colSpan="3" class="gradient-light-border"></Label>
+        <Label col="3" colSpan="2" class="gradient-dark"></Label>
+        <Label col="0" colSpan="3" class="h2 label-white mb-8 ml-4"
+            verticalAlignment="bottom"
+            [text]="(authUser$ | async)?.firstName"></Label>
+        <Label col="0" colSpan="3" class="h2 label-white mb-4 ml-4"
+            verticalAlignment="bottom"
+            [text]="(authUser$ | async)?.lastName"></Label>
+        <Label col="3" colSpan="2"
+            class="mb-4 ml-3 goal"
+            verticalAlignment="bottom"
+            text="57% of goals"></Label>
+    </GridLayout>
+    <GridLayout class="table" row="1" rows="125, 125" columns="*, *, *" *ngFor="let user of [authUser$ | async]">
+        <StackLayout class="br-grey" row="0" col="0">
+            <Label class="h3 label-white" [text]="user?.age"></Label>
+            <Label text="Age"></Label>
+        </StackLayout>
+        <StackLayout class="br-grey" row="0" col="1">
+            <Label class="h3 label-white" [text]="user?.bloodType"></Label>
+            <Label text="Blood t."></Label>
+        </StackLayout>
+        <StackLayout row="0" col="2">
+            <Label class="h3 label-white" [text]="user?.bmi"></Label>
+            <Label text="BMI"></Label>
+        </StackLayout>
+        <StackLayout class="br-grey bb-grey bt-grey" row="1" col="0">
+            <Label class="h3 label-white">
+                <FormattedString>
+                    <Span [text]="user?.height"></Span>
+                    <Span text=" "></Span>
+                    <Span class="h4" text="cm"></Span>
+                </FormattedString>
+            </Label>
+            <Label text="Height"></Label>
+        </StackLayout>
+        <StackLayout class="br-grey bb-grey bt-grey" row="1" col="1">
+            <Label class="h3 label-white">
+                <FormattedString>
+                    <Span [text]="user?.weight"></Span>
+                    <Span text=" "></Span>
+                    <Span class="h4" text="kg"></Span>
+                </FormattedString>
+            </Label>
+            <Label text="Weight"></Label>
+        </StackLayout>
+        <StackLayout class="bt-grey bb-grey" row="1" col="2">
+            <Label class="h3 label-white" text="22"></Label>
+            <Label text="Fat"></Label>
+        </StackLayout>
+    </GridLayout>
+    <StackLayout class="goal-container p-4 pb-10" row="2">
+        <Label height="100%" text="Your Goals"></Label>
+        <Label text="Lose weight"></Label>
+        <Label text="Running per week"></Label>
+        <Label class="pb-5" text="Steps per day"></Label>
+    </StackLayout>
+</GridLayout>

@@ -46,3 +46,4 @@ export const getTemplatePageState = createSelector(getTemplateState, (state: Tem
 export const getPagePrimaryIcon = createSelector(getTemplatePageState, fromPage.getPrimaryIcon);
 export const getPageActiveWidget = createSelector(getTemplatePageState, fromPage.getActiveWidget);
 export const getPageHasBack = createSelector(getTemplatePageState, fromPage.hasBack);
+export const hasTransparentActionBar = createSelector(getTemplatePageState, fromPage.hasTransparentActionBar);

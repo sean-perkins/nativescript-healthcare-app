@@ -102,11 +102,6 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.authUser$ = this.store$.select(getAuthUser);
-
-        this.authUser$.subscribe(res => {
-            console.log('auth user', res);
-        })
-        this.store$.dispatch(new pageActions.PrimaryIcon('plus-circle-o'));
     }
 
     viewStatistic(event: any, widget: any) {

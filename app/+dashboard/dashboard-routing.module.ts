@@ -20,7 +20,8 @@ const routes: Routes = [
         data: {
             actionBar: {
                 rightIcon: 'home'
-            }
+            },
+            hasBack: true
         }
     }
 ];

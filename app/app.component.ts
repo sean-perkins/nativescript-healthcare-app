@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import * as pageActions from './templates/actions/page';
+import { Page } from 'tns-core-modules/ui/page';
 
 @Component({
     selector: 'ns-app',
@@ -12,9 +13,12 @@ import * as pageActions from './templates/actions/page';
 export class AppComponent implements OnInit {
 
     constructor(
+        page: Page,
         private store$: Store<any>,
         private route: ActivatedRoute,
-        private router: Router) { }
+        private router: Router) {
+        page.actionBarHidden = true;
+    }
 
     ngOnInit() {
         this.router.events
@@ -28,10 +32,7 @@ export class AppComponent implements OnInit {
             })
             .mergeMap(route => route.data)
             .map((payload: any) => {
-                const actionBar = payload.actionBar;
-                if (actionBar) {
-                    this.store$.dispatch(new pageActions.PrimaryIcon(actionBar.rightIcon));
-                }
+                this.store$.dispatch(new pageActions.ActionBar(payload));
             })
             .subscribe();
     }

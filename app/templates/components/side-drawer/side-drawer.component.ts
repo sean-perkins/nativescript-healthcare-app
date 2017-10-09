@@ -1,5 +1,8 @@
+import { Store } from '@ngrx/store';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
+import * as auth from '../../../common/actions/auth';
+
 /**
  * Side-drawer Representation Component
  * All the inner-content of the side drawer
@@ -34,14 +37,14 @@ export class SideDrawerComponent {
         {
             label: 'Sign out',
             action: () => {
-                this.routerExt.navigate(['/auth/login'], {
-                    clearHistory: true
-                });
+                this.store$.dispatch(new auth.Logout);
             }
         }
     ];
 
-    constructor(private routerExt: RouterExtensions) { }
+    constructor(
+        private store$: Store<any>,
+        private routerExt: RouterExtensions) { }
 
     /**
      * Handles the selection of a menu item

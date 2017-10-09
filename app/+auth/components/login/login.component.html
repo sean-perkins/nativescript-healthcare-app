@@ -30,7 +30,7 @@
     <Button row="5" class="btn btn-login mt-4"
         (tap)="attemptLogin()"
         text="Login"></Button>
-    <Button row="6" class="btn btn-register mt-4">
+    <Button row="6" class="btn btn-register mt-4" [nsRouterLink]="['/auth/register']">
         <FormattedString>
             <Span class="label" text="Don't have an account?"></Span>
             <Span text=" "></Span>

@@ -8,7 +8,7 @@ import { registerElement } from 'nativescript-angular/element-registry';
 
 import { AppCommonModule } from './common/common.module';
 
-import { LoginSuccessUrlToken } from './common/tokens';
+import * as commonTokens from './common/tokens';
 import { CoreModule } from './core/core.module';
 
 
@@ -33,10 +33,14 @@ registerElement('AnimatedCircle', () => require('nativescript-animated-circle').
         TemplatesModule,
         CoreModule,
         AppCommonModule.forRoot([
-            {
-                provide: LoginSuccessUrlToken,
-                useValue: 'app/dashboard'
-            },
+            // {
+            //     provide: commonTokens.LoginSuccessUrlToken,
+            //     useValue: 'app/dashboard'
+            // },
+            // {
+            //     provide: commonTokens.LogoutSuccessUrlToken,
+            //     useValue: 'auth/login'
+            // },
             {
                 provide: BaseAuthService,
                 useClass: AuthService

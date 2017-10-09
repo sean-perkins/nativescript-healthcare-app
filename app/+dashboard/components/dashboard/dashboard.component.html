@@ -2,7 +2,7 @@
     <Label class="h3 pw-3">
         <FormattedString>
             <Span text="Welcome back, "></Span>
-            <Span [text]="(authUser$ | async).firstName"></Span>
+            <Span [text]="(authUser$ | async)?.firstName"></Span>
         </FormattedString>
     </Label>
     <Label class="h3 pw-3" row="1">

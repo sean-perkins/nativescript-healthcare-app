@@ -3,8 +3,11 @@
     columns="auto, *, auto"
     [row]="row"
     [class.transparent]="transparent">
-    <Button row="0"
-        textAlignment="left"
+    <Button row="0" *ngIf="hasBack$ | async"
+        class="menu-toggle"
+        mat="arrow-back"
+        (tap)="handleBackNavigation()"></Button>
+    <Button row="0" #toggleIcon
         class="menu-toggle"
         (tap)="onToggleNavigation.next(true)"
         [mat]="leftIcon"></Button>

@@ -1,0 +1,11 @@
+<StackLayout [formGroup]="form">
+    <TextField formControlName="email" hint="Email"></TextField>
+    <TextField
+        secure="true"
+        formControlName="password"
+        hint="Password"></TextField>
+
+    <Button (tap)="handleRegister()"
+        text="Register"></Button>
+    <Button text="Cancel"></Button>
+</StackLayout>

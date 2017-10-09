@@ -1,14 +1,14 @@
 import { Action } from '@ngrx/store';
 
-export const PRIMARY_ICON = '[Page] Primary Icon';
+export const ACTION_BAR = '[Page] Action Bar';
 export const PRIMARY_ACTION = '[Page] Primary Action';
 export const PRIMARY_ACTION_COMPLETE = '[Page] Primary Action Complete';
 
 export const ACTIVE_WIDGET = '[Page] Active Widget';
 
-export class PrimaryIcon implements Action {
-    readonly type = PRIMARY_ICON;
-    constructor(public payload: string) { }
+export class ActionBar implements Action {
+    readonly type = ACTION_BAR;
+    constructor(public payload: any) { }
 }
 
 export class PrimaryAction implements Action {
@@ -25,7 +25,7 @@ export class ActiveWidget implements Action {
 }
 
 export type Actions
-    = PrimaryIcon
+    = ActionBar
     | PrimaryAction
     | PrimaryActionComplete
     | ActiveWidget;

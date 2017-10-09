@@ -3,18 +3,22 @@ import * as page from '../actions/page';
 export interface State {
     primaryIcon: string;
     activeWidget: any;
+    hasBack: boolean;
 }
 
 const initialState: State = {
     primaryIcon: undefined,
-    activeWidget: undefined
+    activeWidget: undefined,
+    hasBack: true
 };
 
 export function reducer(state = initialState, action: page.Actions): State {
     switch (action.type) {
-        case page.PRIMARY_ICON:
+        case page.ACTION_BAR:
+            const actionBar = action.payload.actionBar;
             return Object.assign({}, state, {
-                primaryIcon: action.payload,
+                primaryIcon: actionBar ? actionBar.rightIcon : undefined,
+                hasBack: !!action.payload.hasBack
             });
         case page.ACTIVE_WIDGET:
             return Object.assign({}, state, {
@@ -36,3 +40,4 @@ export function reducer(state = initialState, action: page.Actions): State {
  */
 export const getPrimaryIcon = (state: State) => state.primaryIcon;
 export const getActiveWidget = (state: State) => state.activeWidget;
+export const hasBack = (state: State) => state.hasBack;

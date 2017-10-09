@@ -6,12 +6,16 @@ import { reducers } from './reducers';
 import { BaseAuthService } from './services/auth.service';
 import { AuthEffects } from './effects/auth.effects';
 
-import { LoginSuccessUrlToken } from './tokens';
+import * as tokens from './tokens';
 
 const providers = [
     {
-        provide: LoginSuccessUrlToken,
+        provide: tokens.LoginSuccessUrlToken,
         useValue: 'app/dashboard'
+    },
+    {
+        provide: tokens.LogoutSuccessUrlToken,
+        useValue: 'auth/login'
     }
 ];
 

@@ -8,7 +8,7 @@ import { BaseAuthService } from '../services/auth.service';
 import { of } from 'rxjs/observable/of';
 import { empty } from 'rxjs/observable/empty';
 
-import { LoginSuccessUrlToken } from '../tokens';
+import * as tokens from '../tokens';
 
 @Injectable()
 export class AuthEffects {
@@ -19,22 +19,26 @@ export class AuthEffects {
         .map(toPayload)
         .switchMap(payload =>
             this.authService.login(payload)
-                .map(authUser => new Auth.LoginSuccess(authUser))
+                .map(authUser => {
+                    this.routerExt.navigate([this.loginSuccesUrl, {
+                        clearHistory: true
+                    }]);
+                    return new Auth.LoginSuccess(authUser);
+                })
                 .catch(error => of(new Auth.LoginFailed(error)))
         );
-
-    @Effect({ dispatch: false })
-    loginSuccess = this.actions$
-        .ofType(Auth.LOGIN_SUCCESS)
-        .map(() => this.routerExt.navigate([this.loginSuccesUrl, { clearHistory: true }]))
-        .map(() => empty());
 
     @Effect()
     logout$: Observable<Action> = this.actions$
         .ofType(Auth.LOGOUT)
         .switchMap(() =>
             this.authService.logout()
-                .map(() => new Auth.LogoutSuccess)
+                .map(() => {
+                    this.routerExt.navigate([this.logoutSuccessUrl], {
+                        clearHistory: true
+                    });
+                    return new Auth.LogoutSuccess;
+                })
                 .catch(() => of(new Auth.LogoutSuccess))
         );
 
@@ -42,5 +46,6 @@ export class AuthEffects {
         private authService: BaseAuthService,
         private routerExt: RouterExtensions,
         private actions$: Actions,
-        @Inject(LoginSuccessUrlToken) private loginSuccesUrl: string) { }
+        @Inject(tokens.LoginSuccessUrlToken) private loginSuccesUrl: string,
+        @Inject(tokens.LogoutSuccessUrlToken) private logoutSuccessUrl: string) { }
 }

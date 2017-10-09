@@ -22,6 +22,6 @@ export class BaseAuthService {
     }
 
     logout(): Observable<any> {
-        return null;
+        return of(true);
     }
 }

@@ -8,6 +8,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../../core/models';
 import { getAuthUser } from '../../../common/reducers';
+import * as platform from 'tns-core-modules/platform';
 
 @Component({
     moduleId: module.id,
@@ -101,6 +102,9 @@ export class DashboardComponent implements OnInit {
         private routerExt: RouterExtensions) { }
 
     ngOnInit() {
+        if (platform.isIOS) {
+            this.routerExt.frame.ios.controller.interactivePopGestureRecognizer.enabled = false;
+        }
         this.authUser$ = this.store$.select(getAuthUser);
     }
 

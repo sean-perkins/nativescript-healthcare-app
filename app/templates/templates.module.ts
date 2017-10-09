@@ -14,6 +14,7 @@ import { PageComponent } from './components/page/page.component';
 import { SideDrawerComponent } from './components/side-drawer/side-drawer.component';
 import { PageEffects } from './effects/page.effects';
 import { StatisticCircleComponent } from './components/statistic-circle/statistic-circle.component';
+import { GoalDialogComponent } from './components/goal-dialog/goal-dialog.component';
 
 import { reducers } from './reducers';
 
@@ -32,14 +33,19 @@ import { reducers } from './reducers';
         StatisticComponent,
         PageComponent,
         SideDrawerComponent,
-        StatisticCircleComponent
+        StatisticCircleComponent,
+        GoalDialogComponent
     ],
     exports: [
         ActionBarComponent,
         StatisticComponent,
         PageComponent,
         StatisticCircleComponent,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        GoalDialogComponent
+    ],
+    entryComponents: [
+        GoalDialogComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

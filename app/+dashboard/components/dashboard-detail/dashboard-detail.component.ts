@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Actions } from '@ngrx/effects';
 
@@ -8,6 +8,8 @@ import * as Page from '../../../templates/actions/page';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { ModalDialogService } from 'nativescript-angular/modal-dialog';
+import { GoalDialogComponent } from '../../../templates/components/goal-dialog/goal-dialog.component';
 
 @Component({
     moduleId: module.id,
@@ -32,7 +34,9 @@ export class DashboardDetailComponent implements OnInit, OnDestroy {
         private actions$: Actions,
         private store$: Store<any>,
         private router: RouterExtensions,
-        private route: ActivatedRoute) { }
+        private route: ActivatedRoute,
+        private vcRef: ViewContainerRef,
+        private modalService: ModalDialogService) { }
 
     ngOnInit() {
         this.widget$ = this.store$.select(getPageActiveWidget);
@@ -61,9 +65,14 @@ export class DashboardDetailComponent implements OnInit, OnDestroy {
     private onPrimaryActionEffect(): void {
         this.actions$
             .ofType(Page.PRIMARY_ACTION)
-            .take(1)
+            .takeUntil(this.destroy$)
             .do(() => {
-                this.router.navigate(['/app/dashboard']);
+                this.modalService.showModal(GoalDialogComponent, {
+                    viewContainerRef: this.vcRef,
+                    fullscreen: true
+                }).then(() => {
+
+                });
             })
             .subscribe();
     }

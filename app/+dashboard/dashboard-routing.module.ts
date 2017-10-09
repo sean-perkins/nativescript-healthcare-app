@@ -8,18 +8,14 @@ const routes: Routes = [
     {
         path: '',
         component: DashboardComponent,
-        data: {
-            actionBar: {
-                rightIcon: 'plus-circle-o'
-            }
-        }
+        data: {}
     },
     {
         path: ':type',
         component: DashboardDetailComponent,
         data: {
             actionBar: {
-                rightIcon: 'home'
+                rightIcon: 'plus-circle-o'
             },
             hasBack: true
         }

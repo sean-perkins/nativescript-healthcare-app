@@ -1,0 +1,16 @@
+
+.dialog {
+    &-footer {
+        border-top-width: 1;
+        border-top-color: map-get($grey, 400);
+        height: 80;
+        Button {
+            color: map-get($grey, 500);
+            font-size: 18;
+            @extend .bold;
+            &.accent {
+                color: map-get($blue, 500);
+            }
+        }
+    }
+}

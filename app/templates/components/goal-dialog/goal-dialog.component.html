@@ -1,0 +1,21 @@
+
+<GridLayout rows="*, auto">
+    <StackLayout>
+        <ng-template [ngIf]="(widget$ | async)?.label === 'Temperature'">
+            <Label text="Temperature"></Label>
+        </ng-template>
+        <ng-template [ngIf]="(widget$ | async)?.label === 'Steps'">
+            <Label text="Steps"></Label>
+        </ng-template>
+        <ng-template [ngIf]="(widget$ | async)?.label === 'Calories burned'">
+            <Label text="Calories Burned"></Label>
+        </ng-template>
+    </StackLayout>
+    <GridLayout row="1" class="dialog-footer" columns="*, *">
+        <Button class="br-grey"
+            (tap)="close()"
+            text="Cancel"></Button>
+        <Button col="1"
+            class="accent" text="Create"></Button>
+    </GridLayout>
+</GridLayout>

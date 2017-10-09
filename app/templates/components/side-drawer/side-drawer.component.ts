@@ -1,7 +1,9 @@
 import { Store } from '@ngrx/store';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import * as auth from '../../../common/actions/auth';
+import { Observable } from 'rxjs/Observable';
+import { getAuthUser } from '../../../common/reducers';
 
 /**
  * Side-drawer Representation Component
@@ -14,7 +16,7 @@ import * as auth from '../../../common/actions/auth';
     templateUrl: './side-drawer.component.html',
     styleUrls: ['./side-drawer.component.css']
 })
-export class SideDrawerComponent {
+export class SideDrawerComponent implements OnInit {
     // Event emitted when the user selects a menu item
     @Output() onNavigate: EventEmitter<boolean> = new EventEmitter();
     // The collection of navigational menu items
@@ -42,9 +44,15 @@ export class SideDrawerComponent {
         }
     ];
 
+    authUser$: Observable<any>;
+
     constructor(
         private store$: Store<any>,
         private routerExt: RouterExtensions) { }
+
+    ngOnInit() {
+        this.authUser$ = this.store$.select(getAuthUser);
+    }
 
     /**
      * Handles the selection of a menu item

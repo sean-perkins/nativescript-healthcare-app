@@ -1,0 +1,14 @@
+.b {
+    &l {
+        &-grey {
+            border-left-color: map-get($grey, 400);
+            border-left-width: 1;
+        }
+    }
+    &r {
+        &-grey {
+            border-right-color: map-get($grey, 400);
+            border-right-width: 1;
+        }
+    }
+}

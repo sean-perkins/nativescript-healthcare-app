@@ -1,7 +1,7 @@
 <GridLayout rows="100, auto, auto, auto, *" class="ph-4 side-drawer">
     <!-- TODO User Avatar -->
-    <Label row="1" class="pw-4 h3" text="Sean"></Label>
-    <Label row="2" class="pw-4 h3" text="Perkins"></Label>
+    <Label row="1" class="pw-4 h3" [text]="(authUser$ | async)?.firstName"></Label>
+    <Label row="2" class="pw-4 h3" [text]="(authUser$ | async)?.lastName"></Label>
     <Label row="3" class="pw-4" text="57% of goals"></Label>
 
     <StackLayout class="mt-5" row="4">

@@ -1,6 +1,7 @@
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Page } from 'tns-core-modules/ui/page';
 
 import * as dialogs from 'tns-core-modules/ui/dialogs';
 import { RouterExtensions } from 'nativescript-angular/router';
@@ -20,9 +21,12 @@ export class LoginComponent implements OnInit {
     submitted = false;
 
     constructor(
+        page: Page,
         private routerExt: RouterExtensions,
         private store$: Store<any>,
-        private fb: FormBuilder) { }
+        private fb: FormBuilder) {
+        page.actionBarHidden = true;
+    }
 
     ngOnInit() {
         this.initializeForm();

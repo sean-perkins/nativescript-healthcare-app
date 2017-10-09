@@ -28,10 +28,10 @@ NativeScript Angular app template for an example healthcare scenario. Demonstrat
 
 |iOS|Android|
 |:---:|:---:|
-|<img src="https://slack-imgs.com/?c=1&url=https%3A%2F%2Fi.gyazo.com%2F492533e8756f73d86bcdbe370900f38b.gif" width="250px"/>|TODO|
-|<img src="https://user-images.githubusercontent.com/13732623/31262439-ee65ac98-aa28-11e7-8b68-6e8b3f62c19a.png" width="250px">|TODO|
-|<img src="https://user-images.githubusercontent.com/13732623/31211882-c1a5316a-a96a-11e7-81d0-41ba8e55314c.png" width="250px">|TODO|
-|<img src="https://user-images.githubusercontent.com/13732623/31325719-2ce96948-ac8e-11e7-846e-c798d9f6b38b.png" width="250px">|TODO|
+|<img src="https://slack-imgs.com/?c=1&url=https%3A%2F%2Fi.gyazo.com%2F492533e8756f73d86bcdbe370900f38b.gif" width="250px"/>|<img src="https://user-images.githubusercontent.com/13732623/31326080-114ab2ec-ac92-11e7-9812-b58c3e6aa6ce.png" width="250px">|
+|<img src="https://user-images.githubusercontent.com/13732623/31262439-ee65ac98-aa28-11e7-8b68-6e8b3f62c19a.png" width="250px">|<img src="https://user-images.githubusercontent.com/13732623/31326047-bfd477fe-ac91-11e7-86ef-9cff30b856a7.png" width="250px">|
+|<img src="https://user-images.githubusercontent.com/13732623/31211882-c1a5316a-a96a-11e7-81d0-41ba8e55314c.png" width="250px">|<img src="https://user-images.githubusercontent.com/13732623/31326060-e3a7d590-ac91-11e7-8644-107d7d7318e2.png" width="250px">|
+|<img src="https://user-images.githubusercontent.com/13732623/31325719-2ce96948-ac8e-11e7-846e-c798d9f6b38b.png" width="250px">|<img src="https://user-images.githubusercontent.com/13732623/31326067-f929b32a-ac91-11e7-9301-cb9c998c82f8.png" width="250px">|
 
 ---
 

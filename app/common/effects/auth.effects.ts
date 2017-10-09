@@ -1,7 +1,7 @@
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Injectable, Inject } from '@angular/core';
 import { Actions, Effect, toPayload } from '@ngrx/effects';
-import * as Auth from '../actions/Auth';
+import * as Auth from '../actions/auth';
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { BaseAuthService } from '../services/auth.service';

@@ -6,6 +6,9 @@
         height: 80;
         Button {
             color: map-get($grey, 500);
+            background-color: transparent;
+            border-color: transparent;
+            border-width: 1;
             font-size: 18;
             @extend .bold;
             &.accent {

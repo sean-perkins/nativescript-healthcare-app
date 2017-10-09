@@ -1,4 +1,7 @@
 
 .btn {
     color: map-get($blue, 500);
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1;
 }

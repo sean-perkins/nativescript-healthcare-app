@@ -1,6 +1,6 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import * as fromPage from './page';
-import * as fromRoot from '../../reducers';
+import * as fromRoot from '../../core/reducers';
 
 export interface TemplateState extends fromRoot.State {
     page: fromPage.State;

@@ -6,8 +6,8 @@ import { PageComponent } from './templates/components/page/page.component';
 const routes: Routes = [
     {
         path: '',
-        // redirectTo: '/auth/login',
-        redirectTo: '/app/dashboard',
+        redirectTo: '/auth/login',
+        // redirectTo: '/app/dashboard',
         pathMatch: 'full'
     },
     {

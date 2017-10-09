@@ -11,7 +11,6 @@ const initialState: State = {
 };
 
 export function reducer(state = initialState, action: page.Actions): State {
-    console.log('here', action.type);
     switch (action.type) {
         case page.PRIMARY_ICON:
             return Object.assign({}, state, {

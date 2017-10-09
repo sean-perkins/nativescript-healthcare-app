@@ -1,6 +1,6 @@
 import { ActionReducer, compose } from '@ngrx/store';
 import { ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } from '@ngrx/store';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 
 // import * as fromPage from './reducers/page';
@@ -11,7 +11,7 @@ export const reducers: ActionReducerMap<State> = {};
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
     return function (state: State, action: any): State {
-        console.log('action fired', action.type);
+        // console.log('action fired', action.type);
         // TODO add logging here if you want to see state and actions
         return reducer(state, action);
     };

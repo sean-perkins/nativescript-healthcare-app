@@ -5,6 +5,9 @@ import * as pageActions from '../../../templates/actions/page';
 import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout';
 import { Color } from 'tns-core-modules/color/color';
 import { RouterExtensions } from 'nativescript-angular/router';
+import { Observable } from 'rxjs/Observable';
+import { User } from '../../../core/models';
+import { getAuthUser } from '../../../common/reducers';
 
 @Component({
     moduleId: module.id,
@@ -91,11 +94,18 @@ export class DashboardComponent implements OnInit {
         }
     ];
 
+    authUser$: Observable<User>;
+
     constructor(
         private store$: Store<any>,
         private routerExt: RouterExtensions) { }
 
     ngOnInit() {
+        this.authUser$ = this.store$.select(getAuthUser);
+
+        this.authUser$.subscribe(res => {
+            console.log('auth user', res);
+        })
         this.store$.dispatch(new pageActions.PrimaryIcon('plus-circle-o'));
     }
 

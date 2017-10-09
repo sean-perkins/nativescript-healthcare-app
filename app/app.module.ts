@@ -4,10 +4,16 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NSModuleFactoryLoader } from 'nativescript-angular/router';
 import { TemplatesModule } from './templates/templates.module';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { EffectsModule } from '@ngrx/effects';
 import { registerElement } from 'nativescript-angular/element-registry';
+
+import { AppCommonModule } from './common/common.module';
+
+import { LoginSuccessUrlToken } from './common/tokens';
+import { CoreModule } from './core/core.module';
+
+
+import { BaseAuthService } from './common/services/auth.service';
+import { AuthService } from './core/services/auth.service';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
@@ -25,15 +31,17 @@ registerElement('AnimatedCircle', () => require('nativescript-animated-circle').
         NativeScriptModule,
         AppRoutingModule,
         TemplatesModule,
-        StoreModule.forRoot(reducers, { metaReducers }),
-        /**
-        * EffectsModule.forRoot() is imported once in the root module and
-        * sets up the effects class to be initialized immediately when the
-        * application starts.
-        *
-        * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
-        */
-        EffectsModule.forRoot([]),
+        CoreModule,
+        AppCommonModule.forRoot([
+            {
+                provide: LoginSuccessUrlToken,
+                useValue: 'app/dashboard'
+            },
+            {
+                provide: BaseAuthService,
+                useClass: AuthService
+            }
+        ])
 
     ],
     declarations: [
